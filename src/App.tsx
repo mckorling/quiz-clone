@@ -1,4 +1,3 @@
-import React from 'react';
 import Title from './components/Title';
 import { useState, useEffect } from 'react';
 import { Content, QuizData } from '../interfaces'
@@ -24,7 +23,7 @@ const App = () => {
   console.log(quiz)
 
   return (
-    <div>
+    <div className='app'>
       <Title title={quiz?.title} subtitle={quiz?.subtitle}></Title>
       {quiz?.content.map((content: Content, id: Content["id"]) => (
         <QuestionsBlock
