@@ -1,7 +1,8 @@
 import React from 'react';
 import Title from './components/Title';
 import { useState, useEffect } from 'react';
-import { QuizData } from '../interfaces'
+import { Content, QuizData } from '../interfaces'
+import QuestionsBlock from './components/QuestionsBlock';
 
 const App = () => {
 
@@ -21,10 +22,16 @@ const App = () => {
     fetchData()
   }, [])
   console.log(quiz)
-  
+
   return (
     <div>
-      <Title></Title>
+      <Title title={quiz?.title} subtitle={quiz?.subtitle}></Title>
+      {quiz?.content.map((content: Content, id: Content["id"]) => (
+        <QuestionsBlock
+          key={id}
+          quizItem={content}  
+        />
+      ))}
     </div>
   );
 }
